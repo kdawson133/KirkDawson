@@ -31,6 +31,7 @@ typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
     prompt_virtualenv
     prompt_dir
     prompt_git
+    prompt_newline
     prompt_end
 )
 
@@ -80,7 +81,17 @@ prompt_end() {
 
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
+prompt_newline() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+    echo -n " %{%k%}"
+  fi
 
+  echo -n " %{%f%}"
+  CURRENT_BG=''
+}
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   local user=`whoami`
