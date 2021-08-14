@@ -1,7 +1,7 @@
 # vim:ft=zsh ts=2 sw=2 sts=2
-# 
+#
 # kdawson133' Theme a modified version of
-# agnoster's Theme - https://gist.github.com/3712874
+# KirkDawson's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
 # # README
@@ -25,7 +25,7 @@
 
 ### Segments of the prompt, default order declaration
 
-typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
+typeset -aHg KirkDawson_PROMPT_SEGMENTS=(
     prompt_status
     prompt_context
     prompt_virtualenv
@@ -155,26 +155,26 @@ prompt_virtualenv() {
 }
 
 ## Main prompt
-prompt_agnoster_main() {
+prompt_KirkDawson_main() {
   RETVAL=$?
   CURRENT_BG='NONE'
-  for prompt_segment in "${AGNOSTER_PROMPT_SEGMENTS[@]}"; do
+  for prompt_segment in "${KirkDawson_PROMPT_SEGMENTS[@]}"; do
     [[ -n $prompt_segment ]] && $prompt_segment
   done
 }
 
-prompt_agnoster_precmd() {
+prompt_KirkDawson_precmd() {
   vcs_info
-  PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
+  PROMPT='%{%f%b%k%}$(prompt_KirkDawson_main) '
 }
 
-prompt_agnoster_setup() {
+prompt_KirkDawson_setup() {
   autoload -Uz add-zsh-hook
   autoload -Uz vcs_info
 
   prompt_opts=(cr subst percent)
 
-  add-zsh-hook precmd prompt_agnoster_precmd
+  add-zsh-hook precmd prompt_KirkDawson_precmd
 
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*' check-for-changes false
@@ -182,4 +182,4 @@ prompt_agnoster_setup() {
   zstyle ':vcs_info:git*' actionformats '%b (%a)'
 }
 
-prompt_agnoster_setup "$@"
+prompt_KirkDawson_setup "$@"
