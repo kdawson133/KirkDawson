@@ -1,7 +1,7 @@
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
 # kdawson133' Theme a modified version of
-# KirkDawson's Theme - https://gist.github.com/3712874
+# Agnoster's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
 # # README
